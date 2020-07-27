@@ -1,7 +1,4 @@
 // @ts-check
-
-import fs from "fs"
-
 /**
  * Creates tagged JSON strings.\
  * Made to preserve JS types and structures.
