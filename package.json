@@ -1,0 +1,31 @@
+{
+  "author": {
+    "name": "Ilja Bituzki"
+  },
+  "bugs": {
+    "url": "https://github.com/iljucha/tjson/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Stringify and parse tagged JSON-strings/ objects",
+  "homepage": "https://github.com/iljucha/tjson#readme",
+  "keywords": [
+    "json",
+    "tags",
+    "serialize",
+    "deserialize",
+    "object"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "@iljucha/tjson",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iljucha/tjson.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "version": "0.0.2"
+}
