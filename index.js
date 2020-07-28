@@ -69,6 +69,7 @@ export default class TJSON {
                             reviver: (reviveExec) => {
                                 TJSON.isFunction(reviveExec)
                                 TJSON.revivers.push({ tag, exec: reviveExec })
+                                return TJSON
                             }
                         }
                     }
@@ -160,6 +161,7 @@ export default class TJSON {
             TJSON.replacers.splice(replacer, 0)
             TJSON.revivers.splice(reviver, 0)
         }
+        return TJSON
     }
 
     /**
@@ -220,6 +222,7 @@ export default class TJSON {
      */
     static activateStandards() {
         TJSON.standards.forEach($ => TJSON.add($.tag).check($.check).replacer($.replacer).reviver($.reviver))
+        return TJSON
     }
 
     /**
@@ -245,30 +248,43 @@ export default class TJSON {
     static get standards() {
         return  [
             {
-                tag: "(00)", check: v => typeof v === "number",
-                replacer: v => v.toString(36), reviver: v => parseInt(v, 36)
+                tag: "(00)",
+                check: v => typeof v === "number",
+                replacer: v => v.toString(36),
+                reviver: v => parseInt(v, 36)
             },
             {
-                tag: "(01)", check: v => typeof v === "bigint",
-                replacer: v => v, reviver: v => BigInt(v)
+                tag: "(01)",
+                check: v => typeof v === "bigint",
+                replacer: v => v,
+                reviver: v => BigInt(v)
             },
             {
-                tag: "(02)", check: v => v instanceof RegExp,
+                tag: "(02)",
+                check: v => v instanceof RegExp,
                 replacer: v => v.source + "___flags___" + v.flags,
                 reviver: v => RegExp.call(null, ...v.split("___flags___"))
             },
             {
-                tag: "(03)", check: v => v instanceof Date,
-                replacer: v => v.valueOf().toString(36), reviver: v => new Date(parseInt(v, 36))
+                tag: "(03)",
+                check: v => v instanceof Date,
+                replacer: v => v.valueOf().toString(36),
+                reviver: v => new Date(parseInt(v, 36))
             },
             {
-                tag: "(04)", check: v => v instanceof Map,
-                replacer: v => TJSON.stringify([...v.entries()]), reviver: v => new Map(TJSON.parse(v))
+                tag: "(04)",
+                check: v => v instanceof Map,
+                replacer: v => TJSON.stringify([...v.entries()]),
+                reviver: v => new Map(TJSON.parse(v))
             },
             {
-                tag: "(05)", check: v => v instanceof Set,
-                replacer: v => TJSON.stringify([...v.values()]), reviver: v => new Set(TJSON.parse(v))
+                tag: "(05)",
+                check: v => v instanceof Set,
+                replacer: v => TJSON.stringify([...v.values()]),
+                reviver: v => new Set(TJSON.parse(v))
             }
         ]
     }
 }
+
+TJSON.activateStandards()

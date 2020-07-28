@@ -1,4 +1,29 @@
 {
+  "_from": "@iljucha/tjson@0.0.5",
+  "_id": "@iljucha/tjson@0.0.5",
+  "_inBundle": false,
+  "_integrity": "sha512-APN/73MG7yow33jhzRr8rJHgIrrKCNGjrmBzBFEs56F20sbMCqPsarVWJmqKLAcTLYorz18vn+EmSJ+KozyAXA==",
+  "_location": "/@iljucha/tjson",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@iljucha/tjson@0.0.5",
+    "name": "@iljucha/tjson",
+    "escapedName": "@iljucha%2ftjson",
+    "scope": "@iljucha",
+    "rawSpec": "0.0.5",
+    "saveSpec": null,
+    "fetchSpec": "0.0.5"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@iljucha/tjson/-/tjson-0.0.5.tgz",
+  "_shasum": "cc43f1de248722751e7d04ef3f0bdb80c29c33a5",
+  "_spec": "@iljucha/tjson@0.0.5",
+  "_where": "/home/ilja/Projekte/iljushka",
   "author": {
     "name": "Ilja Bituzki"
   },
@@ -27,5 +52,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
-  "version": "0.0.3"
+  "version": "0.0.7"
 }

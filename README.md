@@ -5,8 +5,6 @@ Stringify and parse tagged JSON-strings/ objects
 ```javascript
 import TJSON from "@iljucha/tjson"
 
-TJSON.activateStandards()
-
 class User {
     name
     age
@@ -16,6 +14,14 @@ class User {
         console.log("user created", this)
     }
 }
+
+// built in:
+// (00) = number
+// (01) = bigint
+// (02) = RegExp
+// (03) = Date
+// (04) = Map
+// (05) = Set
 
 TJSON.add("(06)")
     .check(val => val instanceof User)
@@ -102,5 +108,5 @@ let desUserClass = new Function("return " + des.userClass)()
 let desFunction = new Function("return " + des.function)()
 
 new desUserClass("yo", 10) // user created, { name: "yo", age: "10" }
-desFunction() // i worked really hard
+desFunction() // i work really hard
 ```
